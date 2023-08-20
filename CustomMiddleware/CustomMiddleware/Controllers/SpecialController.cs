@@ -29,10 +29,7 @@ namespace CoronaVirusApi.Middlewares
                     return Task.CompletedTask;
                 }
             
-                var actionDescriptor = context
-                    .GetEndpoint()!
-                    .Metadata
-                    .GetMetadata<ControllerActionDescriptor>();
+                var actionDescriptor = endpoint.Metadata.GetMetadata<ControllerActionDescriptor>();
 
                 var attributes = actionDescriptor!.MethodInfo.GetCustomAttributes();
                 if (attributes.Any(x => x is SkipAuthAttribute))
