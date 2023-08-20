@@ -42,7 +42,7 @@ namespace CoronaVirusApi.Middlewares
 
                 if (authHeader != null && userService.ValidateToken(authHeader))
                 {
-                    var needRole = context.GetEndpoint()!
+                    var needRole = endpoint
                         .Metadata
                         .GetMetadata<NeedRoleAttribute>();
 
